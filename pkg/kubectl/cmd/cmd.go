@@ -20,6 +20,7 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"k8s.io/kubectl/pkg/cmd/foo"
 	"os"
 	"os/exec"
 	"runtime"
@@ -491,6 +492,7 @@ func NewKubectlCommand(in io.Reader, out, err io.Writer) *cobra.Command {
 				create.NewCmdCreate(f, ioStreams),
 				expose.NewCmdExposeService(f, ioStreams),
 				run.NewCmdRun(f, ioStreams),
+				foo.NewCmdFoo(f, ioStreams),
 				set.NewCmdSet(f, ioStreams),
 			},
 		},
